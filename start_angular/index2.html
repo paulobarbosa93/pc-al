@@ -1,4 +1,4 @@
-<html ng-app="startAngular">
+<html ng-app>
 <head>
 	<meta charset="utf-8">
 	<title>AngularJS</title>
@@ -10,20 +10,16 @@
 	</style>
 
 </head>
-<body ng-controller="IndexController">
+<body ng-init=" descricao = '' ">
 
 	<img src="img/angularjs-logo.png" height="247" width="955"><!-- NÃO PRECISA DISSO!!! -->
 
 	<input type="text" placeholder="Digite alguma coisa..." ng-model="descricao">
 	<br />
-	<input type="button" value="Salvar" ng-disabled="minimoDeCaracteres()" ng-click="alertar()">
+	<input type="button" value="Salvar" ng-disabled="descricao.length < 10" onclick="alert('Funcionando!')">
 
 	<!-- libs-->
 	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-
-	<!-- js-->
-	<script type="text/javascript" src="js/controllers.js"></script>
 
 </body>
 </html>
