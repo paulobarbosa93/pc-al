@@ -1,0 +1,29 @@
+<html ng-app="startAngular">
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS</title>
+
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body ng-controller="IndexController">
+
+	<img src="img/angularjs-logo.png" height="247" width="955"><!-- NÃO PRECISA DISSO!!! -->
+
+	<input type="text" placeholder="Digite alguma coisa..." ng-model="descricao">
+	<br />
+	<input type="button" value="Salvar" ng-disabled="minimoDeCaracteres()" ng-click="alertar()">
+
+	<!-- libs-->
+	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+	<!-- js-->
+	<script type="text/javascript" src="js/controllers.js"></script>
+
+</body>
+</html>

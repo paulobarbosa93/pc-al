@@ -14,7 +14,7 @@
 
 	<img src="img/angularjs-logo.png" height="247" width="955">
 	<br />
-
+	
 	<div ng-controller="IndexController">
 		<input type="text" placeholder="Digite alguma coisa..." ng-model="descricao" />
 		<br />
@@ -28,14 +28,9 @@
 	<hr>
 
 	<div ng-controller="IndexController2">
-		<input type="search" ng-model="searchText" placeholder="pesquisar...">
 		<ul>
-			<li ng-repeat="usuario in usuarios | orderBy:'nome' | filter:searchText ">{{ usuario.nome }} &nbsp; {{ usuario.matricula }}</li>
+			<li ng-repeat="usuario in usuarios">{{ usuario.nome }} &nbsp; {{ usuario.matricula }}</li>
 		</ul>
-		<input type="text" ng-model="a" />
-		<input type="text" ng-model="b" />
-		<input type="button" value="Calcular Média" ng-click="calcular()">
-		<h3>{{ media }}</h3>
 	</div>
 
 	<!-- libs-->
