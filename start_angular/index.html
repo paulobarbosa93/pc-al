@@ -2,47 +2,30 @@
 <head>
 	<meta charset="utf-8">
 	<title>AngularJS</title>
-
-	<style type="text/css">
-		body {
-			text-align: center;
-		}
-	</style>
-
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
 
-	<img src="img/angularjs-logo.png" height="247" width="955">
-	<br />
-
-	<div ng-controller="IndexController">
-		<input type="text" placeholder="Digite alguma coisa..." ng-model="descricao" />
-		<br />
-		<input type="button" value="Salvar" ng-disabled="minimoDeCaracteres()" ng-click="alertar()" />
-		<hr>
-		<ul>
-			<li ng-repeat="usuario in usuarios">{{ usuario.nome }} &nbsp; {{ usuario.matricula }}</li>
-		</ul>
-	</div>
-
-	<hr>
-
-	<div ng-controller="IndexController2">
-		<input type="search" ng-model="searchText" placeholder="pesquisar...">
-		<ul>
-			<li ng-repeat="usuario in usuarios | orderBy:'nome' | filter:searchText ">{{ usuario.nome }} &nbsp; {{ usuario.matricula }}</li>
-		</ul>
-		<input type="text" ng-model="a" />
-		<input type="text" ng-model="b" />
-		<input type="button" value="Calcular Média" ng-click="calcular()">
-		<h3>{{ media }}</h3>
+	<div class="container">
+		<form role="form">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
 	</div>
 
 	<!-- libs-->
+	<script type="text/javascript" src="lib/jquery/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
 	<!-- js-->
 	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
 </body>
 </html>

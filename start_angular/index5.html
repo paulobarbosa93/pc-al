@@ -1,0 +1,50 @@
+<html ng-app="startAngular">
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS</title>
+
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+
+	<img src="img/angularjs-logo.png" height="247" width="955">
+	<br />
+
+	<div ng-controller="IndexController">
+		<input type="text" placeholder="Digite alguma coisa..." ng-model="descricao" />
+		<br />
+		<input type="button" value="Salvar" ng-disabled="minimoDeCaracteres()" ng-click="alertar()" />
+		<hr>
+		<ul>
+			<li ng-repeat="usuario in usuarios">{{ usuario.nome }} &nbsp; {{ usuario.matricula }}</li>
+		</ul>
+	</div>
+
+	<hr>
+
+	<div ng-controller="IndexController2">
+		<input type="search" ng-model="searchText" placeholder="pesquisar...">
+		<ul>
+			<li ng-repeat="usuario in usuarios | orderBy:'nome' | filter:searchText ">{{ usuario.nome }} &nbsp; {{ usuario.matricula }}</li>
+		</ul>
+		<form ng-submit="calcularMedia()">
+			<input type="number" ng-model="a" required/>
+			<input type="number" ng-model="b" required/>
+			<input type="submit" value="Calcular Média">
+		</form>
+		<h3>{{ media }}</h3>
+	</div>
+
+	<!-- libs-->
+	<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+	<!-- js-->
+	<script type="text/javascript" src="js/controllers.js"></script>
+</body>
+</html>
