@@ -17,13 +17,13 @@ meusControllers.controller('IndexController',
 }]);
 
 meusControllers.controller('IndexController2',
-	['$scope', 'IndexService',
-		function($scope, IndexService){
+	['$scope', 'IndexService', 'MediaFactory',
+		function($scope, IndexService, MediaFactory){
 
 			$scope.frutas = IndexService.retornarFrutas();
 
 			$scope.calcularMedia = function(){
-				$scope.media = ($scope.a + $scope.b) / 2;
+				$scope.media = MediaFactory.calcularMediaAlias($scope.a, $scope.b);
 			};
 
 }]);
@@ -38,4 +38,28 @@ meusControllers.controller('IndexController3',
 			$scope.calcularCuboNumero = function(numero){
 				$scope.resultado = CalcularService.cubo(numero);
 			};
+}]);
+
+meusControllers.controller('ContatoController',
+	['$scope', 'ContatoService',
+		function($scope, ContatoService){
+
+    $scope.contatos = ContatoService.list();
+ 	$scope.contato = {};
+
+    $scope.salvarContato = function () {
+        ContatoService.save($scope.contato);
+        $scope.contato = {};
+    }
+ 
+ 
+    $scope.deletar = function (id) {
+        ContatoService.delete(id);
+        if ($scope.contato.id == id) $scope.contato = {};
+    }
+ 
+ 
+    $scope.editar = function (id) {
+        $scope.contato = angular.copy(ContatoService.get(id));
+    }
 }]);

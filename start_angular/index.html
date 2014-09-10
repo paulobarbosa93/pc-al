@@ -8,14 +8,57 @@
 </head>
 <body>
 
-	<div class="container">
-		<form role="form">
+	<div class="container" ng-controller="ContatoController">
+
+		<form role="form" ng-submit="salvarContato()">
+
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Email address</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+		    <label for="txtNome">Nome:</label>
+		    <input type="text" ng-model="contato.nome" class="form-control" id="txtNome" placeholder="Digite um nome" required>
 		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
+
+		  <div class="form-group">
+		    <label for="txtEmail">Email:</label>
+		    <input type="email" ng-model="contato.email" class="form-control" id="txtEmail" placeholder="Digite um email" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="txtTelefone">Telefone:</label>
+		    <input type="tel" ng-model="contato.telefone" class="form-control" id="txtTelefone" placeholder="Digite um telefone" required>
+		  </div>
+
+		  <br/>
+          <input type="hidden" ng-model="contato.id" />
+
+		  <button type="submit" class="btn btn-default">Salvar
+		  </button>
+
 		</form>
+
+		<br>
+
+		<table class="table">
+		  <thead>
+		  	<tr>
+		  		<th>Nome</th>
+		  		<th>Email</th>
+		  		<th>Telefone</th>
+		  		<th>Opções</th>
+		  	</tr>
+		  </thead>
+		  <tbody>
+		  	<tr ng-repeat="contato in contatos">
+		  		<td>{{ contato.nome }}</td>
+		  		<td>{{ contato.email }}</td>
+		  		<td>{{ contato.telefone }}</td>
+		  		<td>
+		  			<a  href="#" ng-click="editar(contato.id)">editar</a> | 
+        			<a href="#" ng-click="deletar(contato.id)">deletar</a>
+    			</td>
+		  	</tr>
+		  </tbody>
+		</table>
+
 	</div>
 
 	<!-- libs-->
